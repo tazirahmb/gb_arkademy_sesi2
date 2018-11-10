@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>GB Arkademy Test No. 4</title>
+    </head>
+    <body>
+        <h3>Pengecekan jumlah jabat tangan</h3>
+        jumlah orang yang hadir : <input type="number" id="orang"/><br/>
+        <button id="check">Check</button>
+        <div id="result"></div>
+
+        <script>
+            function handshake() {
+            var person = document.getElementById("orang").value;
+            var hasil = ""
+
+            var jabatangan = 0;    
+
+            for(var i = 1; i < person; i++) {
+                jabatangan += i;
+            }
+
+            hasil = "jumlah jabat tangan dalam pertemuan tersebut sebanyak " + jabatangan + " kali.";
+
+            document.getElementById("result").innerHTML = hasil;
+            }   
+
+            document.getElementById("check").addEventListener("click", handshake);
+        </script>
+    </body>
+</html>

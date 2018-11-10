@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>GB Arkademy test no. 2</title>
+        <style>
+        #result {
+            -webkit-text-fill-color: red;
+        }
+        </style>
+    </head>
+    <body>
+        <h3>Requirement Username : </h3>
+        <p>
+            lima karakter pertama huruf kecil dilanjutkan underscore atau titik dan dilanjutkan dua huruf besar. 
+        </p>
+        Username : <input id="username" type="text" placeholder="username" maxlength="8" required/>
+            <button id="check" type="submit">check username</button>
+        <div id="result"></div>
+
+        <!-- <script type="text/javascript" src="js\code.js"></script> -->
+        
+        <script type="text/javascript">
+            function onClick() {
+                var username = document.getElementById("username").value;
+                var hasil = ""
+                
+                if(username.substring(0,5) !== username.substring(0,5).toLowerCase()) {
+                    if(hasil != "") { hasil += "<br/>"; }
+                    hasil += "*lima karakter pertama haruslah huruf kecil";
+                }
+                if(username.substring(5,6) !== "_" && username.substring(5,6) !== ".") {
+                    if(hasil != "") { hasil += "<br/>"; }
+                    hasil += "*karakter keenam wajib <em>underscore</em> atau titik";
+                }
+                if (username.substring(6,8) !== username.substring(6,8).toUpperCase()) {
+                    if(hasil != "") { hasil += "<br/>"; }
+                    hasil += "*dua karakter terakhir haruslah huruf besar";
+                }
+                if(hasil == "") {
+                    hasil = "Username Valid";
+                }
+                
+                document.getElementById("result").innerHTML = hasil;
+            }
+
+            document.getElementById("check").addEventListener('click', onClick);
+        </script>
+    </body>
+</html>

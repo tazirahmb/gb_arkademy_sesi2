@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>GB Arkademy Test No. 1</title>
+    </head>
+    <body>
+        <div id="result"></div>
+    
+    <script language="javascript">
+        var text = '{' + 
+        '"itemId":"12341822",' + 
+        '"itemName":"basic t-shirt",' + 
+        '"price":70000,' +
+        '"avaiableColorAndSize":[' +
+            '{"color":"red", "size":["S","M","L"]},' + 
+            '{"color":"solid black", "size":["M","L"]}],' +
+        '"freeShipping":false}';
+        //obj harus make kutip
+                
+        var obj = JSON.parse(text);
+                
+        var hasil = 
+            "<b>Item ID : </b>" + obj.itemId + "<br>" +
+            "<b>Item Name : </b>" +obj.itemName + "<br>" +
+            "<b>Price : </b>" +obj.price + "<br><b>Avaiable Color and Size :</b><br>";
+
+        for(i in obj.avaiableColorAndSize) {
+            hasil += "<b>Color : </b>" + obj.avaiableColorAndSize[i].color + ", Size : ";
+            for(j in obj.avaiableColorAndSize[i].size) {
+                hasil += obj.avaiableColorAndSize[i].size[j] + " ";
+            }
+            hasil += "<br>";
+        }
+
+        hasil += "<b>Free Shipping : </b>" + obj.freeShipping;
+
+        document.getElementById("result").innerHTML = hasil;
+     </script>
+        
+    </body>
+</html>

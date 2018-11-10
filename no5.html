@@ -1,0 +1,36 @@
+<html>
+    <head>
+            <title>GB Arkademy Test No. 5</title>
+    </head>
+    <body>
+        tulisan : <input id="tulisan" type="text" placeholder="contoh : bootcamp"/> <br/>
+        karakter yang ingin dicek : <input id="karakter" type="text" maxlength="1"/> <br/>
+        <button id="check">cek</button>
+        <div id="result"></div>
+
+        <script>
+            function countChar() {
+            var text = document.getElementById("tulisan").value;
+            var char = document.getElementById("karakter").value;
+            var total = 0;
+            var hasil = "";
+
+            for(var i = 0; i < text.length; i++) {
+                if (text.charAt(i) == char) {
+                    total += 1
+                }
+            }
+
+            if (total == 0) {
+                hasil = "karakter " + char + " tidak terdapat pada kata tersebut.";
+            } else {
+                hasil = "jumlah karakter " + char + " pada kata tersebut sebanyak " + total + " buah.";
+            }
+
+                document.getElementById("result").innerHTML = hasil;
+            }
+
+            document.getElementById("check").addEventListener("click", countChar);
+        </script>
+    </body>
+</html>
